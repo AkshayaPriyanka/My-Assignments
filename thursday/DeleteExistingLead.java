@@ -47,22 +47,22 @@ public class DeleteExistingLead {
 		driver.findElement(By.xpath("//input[@name='phoneNumber']")).sendKeys("98127");
 		driver.findElement(By.xpath("//button[text()='Find Leads']")).click();
 		//Capture the lead ID of the first resulting lead.
-		WebElement leadId = driver.findElement(By.xpath("//a[text()='10139']"));
+		WebElement leadId = driver.findElement(By.xpath("//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a"));
 		String text = leadId.getText();
 		System.out.println("Captured Lead id :" +text);
 		
 		//Click the first resulting lead
-		driver.findElement(By.xpath("//a[text()='10139']")).click();
+		driver.findElement(By.xpath("//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a")).click();
 		
 		//Click the "Delete" button
-		driver.findElement(By.xpath("//a[text()='Delete']")).click();
+		driver.findElement(By.xpath("//a[@class='subMenuButtonDangerous']")).click();
 		
 		
 		//Click "Find leads" again
 		driver.findElement(By.linkText("Find Leads")).click();
         // Enter the captured lead ID.
-		driver.findElement(By.xpath("//input[@name='id']")).sendKeys("10139");
-		String text2 = driver.findElement(By.xpath("//div[text()='No records to display']")).getText();
+		driver.findElement(By.xpath("//input[@name='id']")).sendKeys(text);
+		String text2 = driver.findElement(By.className("x-paging-info")).getText();
 		
 		if(text2.equals("No records to display"))
 		{

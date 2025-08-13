@@ -4,24 +4,14 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.testng.annotations.Test;
 
 
 
 public class DeleteLead {
-	
-    @Test
-	public void deleteLead() throws InterruptedException {
+
+	public static void main(String[] args) throws InterruptedException {
 		
-		//EdgeDriver driver = new EdgeDriver();
-    	
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("guest");
-		
-		ChromeDriver driver = new ChromeDriver(options);
-		
+		EdgeDriver driver = new EdgeDriver();
 		driver.manage().window().maximize();
 		driver.get("http://leaftaps.com/opentaps/");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
